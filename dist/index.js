@@ -1,6 +1,6 @@
 "use strict";
-let id = 4;
-console.log('ID: ', id);
+let sid = 4;
+console.log('ID: ', sid);
 var Direction1;
 (function (Direction1) {
     Direction1[Direction1["Up"] = 0] = "Up";
@@ -12,7 +12,7 @@ var Direction1;
 console.log(Direction1.Up);
 const user1 = {
     name: 'John',
-    id: 3
+    id: 3,
 };
 var Direction2;
 (function (Direction2) {
@@ -28,7 +28,7 @@ pid = 'd';
 let employee;
 employee = [
     [1, 'down'],
-    [3, '34kd']
+    [3, '34kd'],
 ];
 let company = 'Bill Xu';
 let isBoy = false;
@@ -48,6 +48,18 @@ function hog(message) {
 hog(true);
 const user2 = {
     id: 1,
-    name: 'Bill'
+    name: 'Bill',
 };
-user2.id = 8;
+const add = (x, y) => x + y;
+const sub = (x, y) => x - y;
+//Classes
+class Person {
+    constructor(id, name) {
+        this.id = id;
+        this.name = name;
+    }
+}
+const yuxian = new Person(5, 'Cool');
+const yu = new Person(6, 'wan');
+yuxian.id = 555;
+console.log(yuxian, yu);
