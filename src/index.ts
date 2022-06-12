@@ -97,20 +97,58 @@ const sub: MathFunc = (x: number, y: number): number => x - y;
 
 //Classes
 
-class Person {
+interface PersonInterface {
+  id: number;
+  name: string;
+  register(): string;
+}
+
+class Person implements PersonInterface {
   id: number; //public, private, protected
   name: string;
 
   constructor(id: number, name: string) {
-    this.id = id
-    this.name = name
+    this.id = id;
+    this.name = name;
+  }
+
+  register() {
+    return `${this.name} is now registered`;
   }
 }
 
 const yuxian = new Person(5, 'Cool');
 const yu = new Person(6, 'wan');
 
-yuxian.id = 555
+yuxian.id = 555;
 
-console.log(yuxian, yu);
+console.log(yuxian.register());
 
+//Subclasses - extended function
+
+class Employee extends Person {
+  position: string;
+
+  constructor(id: number, name: string, position: string) {
+    super(id, name);
+    this.position = position;
+  }
+}
+
+const emp = new Employee(99, 'Huahua', 'Developer');
+
+console.log(emp.register());
+
+//generics
+
+function getArray<T>(items: T[]): T[] {
+  return new Array().concat(items);
+}
+
+let numArray = getArray<string>(['2', 3, 4, 6]);
+let stringArray = getArray(['Lee', 'Wong', 'Chen'])
+
+numArray.push('6')
+
+console.log(numArray);
+console.log(stringArray);

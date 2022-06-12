@@ -52,14 +52,34 @@ const user2 = {
 };
 const add = (x, y) => x + y;
 const sub = (x, y) => x - y;
-//Classes
 class Person {
     constructor(id, name) {
         this.id = id;
         this.name = name;
     }
+    register() {
+        return `${this.name} is now registered`;
+    }
 }
 const yuxian = new Person(5, 'Cool');
 const yu = new Person(6, 'wan');
 yuxian.id = 555;
-console.log(yuxian, yu);
+console.log(yuxian.register());
+//Subclasses - extended function
+class Employee extends Person {
+    constructor(id, name, position) {
+        super(id, name);
+        this.position = position;
+    }
+}
+const emp = new Employee(99, 'Huahua', 'Developer');
+console.log(emp.register());
+//generics
+function getArray(items) {
+    return new Array().concat(items);
+}
+let numArray = getArray(['2', 3, 4, 6]);
+let stringArray = getArray(['Lee', 'Wong', 'Chen']);
+numArray.push('6');
+console.log(numArray);
+console.log(stringArray);
